@@ -1,6 +1,7 @@
 package ir.hamsaa.persiandatepicker;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.support.annotation.ColorInt;
@@ -39,9 +40,9 @@ public class PersianDatePickerDialog {
     public static Typeface typeFace;
     private String todayButtonString = "امروز";
     private boolean todayButtonVisibility = false;
-    private int actionColor = Color.GRAY;
+    private int actionColor ;
     private int backgroundColor = Color.WHITE;
-    private int titleColor = Color.parseColor("#111111");
+    private int titleColor = Color.parseColor("#ffffff");
     private boolean cancelable = true;
     private boolean forceMode;
     private int pickerBackgroundColor;
@@ -49,6 +50,7 @@ public class PersianDatePickerDialog {
 
     public PersianDatePickerDialog(Context context) {
         this.context = context;
+        actionColor =ContextCompat.getColor(context,R.color.dp_primary);
     }
 
     public PersianDatePickerDialog setListener(Listener listener) {
@@ -282,7 +284,7 @@ public class PersianDatePickerDialog {
 
     private void updateView(TextView dateText) {
         String date =
-                pCalendar.getPersianWeekDayName() + " " +
+                pCalendar.getPersianWeekDayName() + "\n" +
                         pCalendar.getPersianDay() + " " +
                         pCalendar.getPersianMonthName() + " " +
                         pCalendar.getPersianYear();

@@ -58,23 +58,22 @@ public class MainActivity extends AppCompatActivity {
     public void showCalendarInDarkMode(View v) {
         Typeface typeface = Typeface.createFromAsset(getAssets(), "Shabnam-Light-FD.ttf");
 
-        PersianCalendar initDate = new PersianCalendar();
-        initDate.setPersianDate(1370, 3, 13);
+        PersianCalendar initDate = new PersianCalendar(System.currentTimeMillis());
 
         picker = new PersianDatePickerDialog(this)
                 .setPositiveButtonString("باشه")
                 .setNegativeButton("بیخیال")
                 .setTodayButton("امروز")
                 .setTodayButtonVisible(true)
-                .setMinYear(1300)
-                .setMaxYear(PersianDatePickerDialog.THIS_YEAR)
-                .setInitDate(initDate)
-                .setActionTextColor(Color.GRAY)
-                .setTypeFace(typeface)
-                .setBackgroundColor(Color.BLACK)
-                .setTitleColor(Color.WHITE)
-                .setActionTextColor(Color.WHITE)
-                .setPickerBackgroundDrawable(R.drawable.darkmode_bg)
+                .setMinYear(PersianDatePickerDialog.THIS_YEAR)
+                .setMaxYear(1498)
+                .setInitDate(initDate,true)
+//                .setActionTextColor(Color.GRAY)
+//                .setTypeFace(typeface)
+//                .setBackgroundColor(Color.BLACK)
+//                .setTitleColor(Color.WHITE)
+//                .setActionTextColor(Color.WHITE)
+//                .setPickerBackgroundDrawable(R.drawable.darkmode_bg)
                 .setCancelable(false)
                 .setListener(new Listener() {
                     @Override
